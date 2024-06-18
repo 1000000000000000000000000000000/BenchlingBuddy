@@ -1,0 +1,24 @@
+{
+	"manifest_version": 3,
+	"name": "Benchling Buddy",
+	"version": "0.1",
+	"description": "Replace newlines with commas in clipboard content.",
+	"permissions": [
+		"clipboardRead",
+		"clipboardWrite",
+		"scripting",
+		"activeTab"
+	],
+	"background": {
+		"service_worker": "background.js"
+	},
+	"commands": {
+		"modify-clipboard": {
+			"suggested_key": {
+				"default": "Ctrl+B",
+				"mac": "Command+B"
+			},
+			"description": "Modify clipboard content"
+		}
+	}
+}
