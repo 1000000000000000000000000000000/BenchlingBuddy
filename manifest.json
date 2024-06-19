@@ -2,23 +2,20 @@
 	"manifest_version": 3,
 	"name": "Benchling Buddy",
 	"version": "0.1",
-	"description": "Replace newlines with commas in clipboard content by pressing Ctrl+C+B.",
+	"description": "Replace newlines with commas in clipboard content by pressing Ctrl+Shift+B.",
 	"permissions": [
 		"clipboardRead",
 		"clipboardWrite",
 		"scripting",
 		"activeTab"
 	],
-	"background": {
-		"service_worker": "background.js"
-	},
-	"commands": {
-		"modify-clipboard": {
-			"suggested_key": {
-				"default": "Ctrl+C+B",
-				"mac": "Command+C+B"
-			},
-			"description": "Modify clipboard content"
+	"content_scripts": [
+		{
+			"matches": [
+				"https://*.benchling.com/*",
+				"http://*.benchling.com/*"
+			],
+			"js": ["content.js"]
 		}
-	}
+	]
 }
